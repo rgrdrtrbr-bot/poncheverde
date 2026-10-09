@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lavanderia Ponche Verde | Lava e Seca em Santiago RS</title>
+    <meta name="description" content="Há 67 anos encantando clientes em Santiago RS. Especialistas em lavagem a seco, edredons, roupas do dia a dia e tingimento.">
+    
+    <!-- Google Fonts: Montserrat for a modern, clean look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS for Carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ponche: {
+                            light: '#e0f4f1',
+                            teal: '#30b59c', /* Cor principal da logo */
+                            dark: '#1a5c73', /* Cor do texto da logo */
+                            accent: '#18937d'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Swiper Styles */
+        .swiper-button-next, .swiper-button-prev {
+            color: #30b59c !important;
+            background: rgba(255,255,255,0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 20px !important;
+            font-weight: bold;
+        }
+        .swiper-pagination-bullet-active {
+            background-color: #30b59c !important;
+        }
+        
+        /* Floating WhatsApp Button Animation */
+        .float-wa {
+            animation: pulse-wa 2s infinite;
+        }
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(26, 92, 115, 0.9) 0%, rgba(26, 92, 115, 0.4) 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-slate-50 antialiased selection:bg-ponche-teal selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-white shadow-md py-3">
+        <div class="container mx-auto px-4 md:px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="logoponche_2.jpg" alt="Lavanderia Ponche Verde Logo" class="h-12 md:h-16 object-contain">
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8 items-center font-semibold text-ponche-dark">
+                <a href="#sobre" class="hover:text-ponche-teal transition">Sobre Nós</a>
+                <a href="#servicos" class="hover:text-ponche-teal transition">Serviços</a>
+                <a href="#diferenciais" class="hover:text-ponche-teal transition">Diferenciais</a>
+                <a href="#depoimentos" class="hover:text-ponche-teal transition">Avaliações</a>
+                <a href="#contato" class="hover:text-ponche-teal transition">Localização</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://www.instagram.com/poncheverdelavanderia/" target="_blank" class="text-ponche-dark hover:text-ponche-teal text-xl transition"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/lavanderiaponcheverde/?locale=pt_BR" target="_blank" class="text-ponche-dark hover:text-ponche-teal text-xl transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/5555984549855?text=Olá!%20Gostaria%20de%20informações%20sobre%20os%20serviços%20da%20lavanderia." target="_blank" class="bg-ponche-teal hover:bg-ponche-accent text-white px-6 py-2 rounded-full font-bold transition shadow-lg flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-lg"></i> Fale Conosco
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-ponche-dark text-2xl focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute w-full left-0 top-full border-t border-gray-100 shadow-xl">
+            <div class="flex flex-col px-6 py-4 space-y-4 text-ponche-dark font-semibold text-center">
+                <a href="#sobre" class="mobile-link hover:text-ponche-teal">Sobre Nós</a>
+                <a href="#servicos" class="mobile-link hover:text-ponche-teal">Serviços</a>
+                <a href="#diferenciais" class="mobile-link hover:text-ponche-teal">Diferenciais</a>
+                <a href="#depoimentos" class="mobile-link hover:text-ponche-teal">Avaliações</a>
+                <a href="#contato" class="mobile-link hover:text-ponche-teal">Localização</a>
+                <a href="https://wa.me/5555984549855?text=Olá!%20Gostaria%20de%20informações." class="bg-ponche-teal text-white py-3 rounded-full mt-2 inline-block">Agendar Coleta pelo WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5555984549855?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20atendimento." target="_blank" class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-2xl float-wa hover:bg-[#20b858] transition">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Main Content Start -->
+    <main class="pt-20 md:pt-24">
+
+        <!-- HERO SECTION (Swiper Carousel) -->
+        <section id="hero" class="relative w-full h-[70vh] md:h-[85vh] bg-gray-900">
+            <div class="swiper mySwiper w-full h-full">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide relative w-full h-full">
+                        <img src="ponche8_2.jpg" alt="Lavou secou se apaixonou" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 hero-overlay flex items-center">
+                            <div class="container mx-auto px-6 md:px-12 text-white">
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-2xl">Lavou, secou,<br><span class="text-ponche-teal">se apaixonou.</span></h1>
+                                <p class="text-lg md:text-xl mb-8 max-w-xl opacity-90">Há 67 anos fazendo a diferença na vida dos santiaguenses. Limpeza, secagem e passadoria perfeita.</p>
+                                <a href="#servicos" class="bg-ponche-teal hover:bg-ponche-accent text-white px-8 py-4 rounded-full font-bold text-lg transition inline-block shadow-lg">Conheça Nossos Serviços</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide relative w-full h-full">
+                        <img src="ponche7_2.jpg" alt="Roupa sai pronta para uso" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 hero-overlay flex items-center">
+                            <div class="container mx-auto px-6 md:px-12 text-white">
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-2xl">A roupa sai <span class="text-ponche-teal">pronta</span><br>para ser usada</h1>
+                                <p class="text-lg md:text-xl mb-8 max-w-xl opacity-90">Do cesto direto para o guarda-roupas. Praticidade e cheirinho de limpeza que você merece.</p>
+                                <a href="https://wa.me/5555984549855" target="_blank" class="bg-white text-ponche-dark hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition inline-block shadow-lg">Solicitar Atendimento</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide relative w-full h-full">
+                        <img src="ponche9_2.jpg" alt="Guerra com roupas que não secam" class="w-full h-full object-cover object-center">
+                        <div class="absolute inset-0 hero-overlay flex items-center">
+                            <div class="container mx-auto px-6 md:px-12 text-white">
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight max-w-2xl">Roupas que não secam?<br><span class="text-ponche-teal">Nós resolvemos!</span></h1>
+                                <p class="text-lg md:text-xl mb-8 max-w-xl opacity-90">Acabe com a guerra contra a umidade. Máquinas específicas para uma secagem rápida e adequada.</p>
+                                <a href="#servicos" class="bg-ponche-teal hover:bg-ponche-accent text-white px-8 py-4 rounded-full font-bold text-lg transition inline-block shadow-lg">Ver Soluções</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- SOBRE NÓS SECTION -->
+        <section id="sobre" class="py-20 bg-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="ponche1_2.jpg" alt="Cobertores limpos" class="rounded-xl shadow-lg w-full h-64 object-cover">
+                            <img src="ponche3_2.jpg" alt="Toalhas dobradas" class="rounded-xl shadow-lg w-full h-64 object-cover mt-8">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="text-ponche-teal font-bold tracking-wider uppercase mb-2">Tradição e Qualidade</div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-ponche-dark mb-6">Há 67 anos encantando Santiago</h2>
+                        <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                            Nossa lavanderia está fazendo a diferença na vida dos santiaguenses há mais de seis décadas! Oferecemos desde a limpeza profunda até a secagem e passadoria perfeita da sua roupa.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                            Possuímos maquinário moderno e específico para o cuidado adequado de forros, tecidos delicados, estofados e trajes finos. Seu bem-estar começa por vestir roupas perfeitamente higienizadas e cheirosas.
+                        </p>
+                        <div class="flex items-center gap-6">
+                            <div class="flex flex-col">
+                                <span class="text-4xl font-bold text-ponche-teal">4.4+</span>
+                                <span class="text-sm font-semibold text-gray-500">Estrelas no Google</span>
+                            </div>
+                            <div class="h-12 w-px bg-gray-300"></div>
+                            <div class="flex flex-col">
+                                <span class="text-4xl font-bold text-ponche-teal">67</span>
+                                <span class="text-sm font-semibold text-gray-500">Anos de História</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS SECTION -->
+        <section id="servicos" class="py-20 bg-ponche-light">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-ponche-teal font-bold tracking-wider uppercase">O que fazemos</span>
+                    <h2 class="text-4xl font-bold text-ponche-dark mt-2 mb-4">Soluções completas para suas roupas</h2>
+                    <p class="text-gray-600 text-lg">Cuidamos de cada peça com o carinho que ela merece. Conheça nossos principais serviços e deixe o trabalho pesado com a gente.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="ponche6_2.jpg" alt="Lavagem a Seco" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <div class="w-14 h-14 mx-auto bg-ponche-light text-ponche-teal rounded-full flex items-center justify-center text-2xl -mt-12 relative z-10 border-4 border-white">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-ponche-dark mt-4 mb-2">Lavagem a Seco</h3>
+                            <p class="text-gray-600 text-sm mb-4">A única em Santiago com lavagem a seco profissional. Ideal para trajes finos, casacos e tecidos delicados de inverno.</p>
+                            <a href="https://wa.me/5555984549855?text=Olá,%20quero%20saber%20mais%20sobre%20Lavagem%20a%20Seco" target="_blank" class="text-ponche-teal font-bold hover:text-ponche-dark transition text-sm">Saiba Mais <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="ponche5_2.jpg" alt="Edredons e Cobertores" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <div class="w-14 h-14 mx-auto bg-ponche-light text-ponche-teal rounded-full flex items-center justify-center text-2xl -mt-12 relative z-10 border-4 border-white">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-ponche-dark mt-4 mb-2">Edredons</h3>
+                            <p class="text-gray-600 text-sm mb-4">Lavamos edredons e cobertores de todos os tamanhos. É hora de guardá-los limpinhos e super cheirosos!</p>
+                            <a href="https://wa.me/5555984549855?text=Olá,%20quero%20lavar%20meus%20edredons" target="_blank" class="text-ponche-teal font-bold hover:text-ponche-dark transition text-sm">Saiba Mais <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="ponche2_2.jpg" alt="Lavagem por Quilo" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <div class="w-14 h-14 mx-auto bg-ponche-light text-ponche-teal rounded-full flex items-center justify-center text-2xl -mt-12 relative z-10 border-4 border-white">
+                                <i class="fas fa-weight-hanging"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-ponche-dark mt-4 mb-2">Lavagem por Quilo</h3>
+                            <p class="text-gray-600 text-sm mb-4">A solução perfeita para o dia a dia. Aqui suas roupas saem lavadas, passadas, cheirosas e prontas para uso.</p>
+                            <a href="https://wa.me/5555984549855?text=Olá,%20como%20funciona%20a%20lavagem%20por%20quilo?" target="_blank" class="text-ponche-teal font-bold hover:text-ponche-dark transition text-sm">Saiba Mais <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 group">
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="ponche4_2.jpg" alt="Serviços Especiais" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+                        </div>
+                        <div class="p-6 text-center">
+                            <div class="w-14 h-14 mx-auto bg-ponche-light text-ponche-teal rounded-full flex items-center justify-center text-2xl -mt-12 relative z-10 border-4 border-white">
+                                <i class="fas fa-couch"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-ponche-dark mt-4 mb-2">Tingimento e Estofados</h3>
+                            <p class="text-gray-600 text-sm mb-4">Renove suas peças favoritas. Oferecemos serviços de tingimento especializado e limpeza profunda de estofados.</p>
+                            <a href="https://wa.me/5555984549855?text=Olá,%20gostaria%20de%20informações%20sobre%20tingimento%20e%20estofados" target="_blank" class="text-ponche-teal font-bold hover:text-ponche-dark transition text-sm">Saiba Mais <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS SECTION -->
+        <section id="diferenciais" class="py-20 bg-ponche-teal text-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center border-white/20">
+                    <div>
+                        <div class="text-5xl mb-4 text-ponche-dark drop-shadow-sm"><i class="fas fa-certificate"></i></div>
+                        <h4 class="text-xl font-bold mb-2">Tradição Comprovada</h4>
+                        <p class="text-white/80">Há 67 anos no mercado, somos a referência número um em cuidados com tecidos em Santiago.</p>
+                    </div>
+                    <div>
+                        <div class="text-5xl mb-4 text-ponche-dark drop-shadow-sm"><i class="fas fa-wind"></i></div>
+                        <h4 class="text-xl font-bold mb-2">Lavagem a Seco Única</h4>
+                        <p class="text-white/80">Exclusividade na cidade. O método mais seguro para higienizar peças delicadas sem danificá-las.</p>
+                    </div>
+                    <div>
+                        <div class="text-5xl mb-4 text-ponche-dark drop-shadow-sm"><i class="fas fa-cogs"></i></div>
+                        <h4 class="text-xl font-bold mb-2">Máquinas Específicas</h4>
+                        <p class="text-white/80">Equipamentos de alta tecnologia que garantem a remoção de sujeira e a preservação das fibras.</p>
+                    </div>
+                    <div>
+                        <div class="text-5xl mb-4 text-ponche-dark drop-shadow-sm"><i class="fas fa-heart"></i></div>
+                        <h4 class="text-xl font-bold mb-2">Atendimento Dedicado</h4>
+                        <p class="text-white/80">Respeito e cordialidade são nossa marca registrada. Tratamos sua roupa como se fosse nossa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS SECTION -->
+        <section id="depoimentos" class="py-20 bg-white">
+            <div class="container mx-auto px-6 md:px-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-ponche-teal font-bold tracking-wider uppercase">Avaliações</span>
+                    <h2 class="text-4xl font-bold text-ponche-dark mt-2 mb-4">O que nossos clientes dizem</h2>
+                    <p class="text-gray-600 text-lg">Temos orgulho das nossas 4.439 avaliações no Google. Veja algumas das experiências de quem confia no nosso trabalho.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                        <div class="text-yellow-400 text-sm mb-4">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6">"Ótimo lugar para passar e lavar roupas, muita atenção, respeito e cordialidade!!"</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-ponche-light rounded-full flex items-center justify-center text-ponche-teal font-bold">C</div>
+                            <div>
+                                <h5 class="font-bold text-ponche-dark text-sm">Cliente Satisfeito</h5>
+                                <span class="text-xs text-gray-500">Google Review</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-quote-right absolute top-8 right-8 text-6xl text-gray-200 opacity-50"></i>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                        <div class="text-yellow-400 text-sm mb-4">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6">"Preço bom e serviço de qualidade. Recomendo de olhos fechados."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-ponche-light rounded-full flex items-center justify-center text-ponche-teal font-bold">M</div>
+                            <div>
+                                <h5 class="font-bold text-ponche-dark text-sm">Morador de Santiago</h5>
+                                <span class="text-xs text-gray-500">Google Review</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-quote-right absolute top-8 right-8 text-6xl text-gray-200 opacity-50"></i>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-gray-100 relative">
+                        <div class="text-yellow-400 text-sm mb-4">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-700 italic mb-6">"Ótima qualidade e compromisso com o cliente. A melhor lavanderia da região."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 bg-ponche-light rounded-full flex items-center justify-center text-ponche-teal font-bold">F</div>
+                            <div>
+                                <h5 class="font-bold text-ponche-dark text-sm">Cliente Fiel</h5>
+                                <span class="text-xs text-gray-500">Google Review</span>
+                            </div>
+                        </div>
+                        <i class="fas fa-quote-right absolute top-8 right-8 text-6xl text-gray-200 opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOCALIZAÇÃO & CONTATO -->
+        <section id="contato" class="py-20 bg-gray-900 text-white relative">
+            <div class="container mx-auto px-6 md:px-12 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <span class="text-ponche-teal font-bold tracking-wider uppercase">Fale Conosco</span>
+                        <h2 class="text-4xl font-bold mt-2 mb-8 text-white">Onde nos encontrar</h2>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-ponche-teal flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg">Endereço</h5>
+                                    <p class="text-gray-400 mt-1">R. Mal. Deodoro, 1067 - Centro<br>Santiago - RS, 97700-000</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-ponche-teal flex-shrink-0">
+                                    <i class="fas fa-phone-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg">Telefones</h5>
+                                    <p class="text-gray-400 mt-1">(55) 3251-4390</p>
+                                    <p class="text-ponche-teal font-semibold">(55) 98454-9855 / (55) 98139-0159 <i class="fab fa-whatsapp ml-1"></i></p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-ponche-teal flex-shrink-0">
+                                    <i class="fas fa-clock text-xl"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold text-lg">Horário de Funcionamento</h5>
+                                    <p class="text-gray-400 mt-1">Segunda a Sexta: 08:00 às 12:00 e 13:30 às 18:00<br>Sábado: 08:00 às 12:00<br><span class="text-xs italic">*Horários de pico geralmente às 14:00</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10">
+                            <a href="https://wa.me/5555984549855" target="_blank" class="bg-ponche-teal hover:bg-ponche-accent text-white px-8 py-4 rounded-full font-bold transition shadow-lg inline-flex items-center gap-2">
+                                <i class="fab fa-whatsapp text-xl"></i> Chamar no WhatsApp
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Map Embed -->
+                    <div class="rounded-2xl overflow-hidden shadow-2xl h-[400px] lg:h-auto border border-gray-800">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3478.9666072124564!2d-54.8727181!3d-29.1945532!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9500054236a282f9%3A0x8e8334a1795c478f!2sLavanderia%20Ponche%20Verde!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 py-12 border-t border-gray-900">
+        <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-4">
+                <img src="logoponche_2.jpg" alt="Logo" class="h-10 opacity-80 bg-white p-1 rounded">
+                <div>
+                    <h3 class="font-bold text-white">Lavanderia Ponche Verde</h3>
+                    <p class="text-sm">Há 67 anos encantando clientes!</p>
+                </div>
+            </div>
+            
+            <div class="flex gap-4">
+                <a href="https://www.instagram.com/poncheverdelavanderia/" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-ponche-teal hover:text-white transition">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/lavanderiaponcheverde/?locale=pt_BR" target="_blank" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-ponche-teal hover:text-white transition">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="mailto:lavanderiaponcheverde2023@gmail.com" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-ponche-teal hover:text-white transition">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 md:px-12 mt-8 text-center text-sm border-t border-gray-900 pt-8">
+            &copy; 2026 Lavanderia Ponche Verde. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize Swiper Carousel
+        var swiper = new Swiper(".mySwiper", {
+            spaceBetween: 0,
+            centeredSlides: true,
+            effect: "fade",
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
